@@ -15,17 +15,42 @@ const PokedexScreen = () => {
     const [pokeSearch, setPokeSearch] = useState()
     const [currentPage, setCurrentPage] = useState(1)
     const [filterPokemon, setFilterPokemon] = useState()
+    const [typeList, setTypeList] = useState()
+    const [filterType, setFilterType] = useState('All Pokemons')
 
 
     useEffect(() => {
-        const URL = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100'
-        /*1154*/
-        axios.get(URL)
-            .then(res => setPokemons(res.data.results))
-            .catch(err => console.log(err))
-    }, [])
+        if (filterType === 'All Pokemons') {
+            //Petición de todos los pokemon
+            const URL = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100'
+            /*1154*/
+            axios.get(URL)
+                .then(res => {
+                    console.log(res.data.results)
+                    setPokemons(res.data.results)
+                })
+                .catch(err => console.log(err))
+        } else {
+            //pokemons por tipo
+            const URL_FILTER = `https://pokeapi.co/api/v2/type/${filterType}/`
+            axios.get(URL_FILTER)
+                .then(res => {
+                    console.log(res.data.pokemon)
+                    const array = res.data.pokemon.map(e => e.pokemon)
+                    setPokemons(array)
+                })
+                .catch(err => console.log(err))
+        }
+    }, [filterType])
 
     console.log(pokemons)
+
+    useEffect(() => {
+        const URL_POKEMONS = 'https://pokeapi.co/api/v2/type/'
+        axios.get(URL_POKEMONS)
+            .then(res => setTypeList(res.data.results))
+            .catch(err => console.log(err))
+    }, [])
 
 
     let arrayPokemons = []
@@ -56,8 +81,8 @@ const PokedexScreen = () => {
     console.log(arrayPokemons)
 
     useEffect(() => {
-            setFilterPokemon(pokemons?.filter(e => e.name.includes(pokeSearch?.toLowerCase())))
-        
+        setFilterPokemon(pokemons?.filter(e => e.name.includes(pokeSearch?.toLowerCase())))
+
 
     }, [pokeSearch])
 
@@ -70,7 +95,10 @@ const PokedexScreen = () => {
             <div className='pokedex-letras'>
                 <h1 className='pokedex-inside'>Pokedex</h1>
                 <h2>Hi {nameUser}, welcome to Pokedex</h2>
-                <SearchBar setPokeSearch={setPokeSearch} />
+                <SearchBar setPokeSearch={setPokeSearch}
+                    typeList={typeList}
+                    setFilterType={setFilterType}
+                />
             </div>
 
             <Pagination
