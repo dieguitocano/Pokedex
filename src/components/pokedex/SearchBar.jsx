@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-const SearchBar = ({setPokeSearch, typeList, setFilterType}) => {
+const SearchBar = ({setPokeSearch, typeList, setFilterType, goHome}) => {
 
 
   const changeInputText = e => {
@@ -34,6 +34,7 @@ const SearchBar = ({setPokeSearch, typeList, setFilterType}) => {
           }
 
         </select>
+        <button className='webdesigntuts-workshop' onClick={goHome}>Sign out</button>
       </form>
     </section>
   )

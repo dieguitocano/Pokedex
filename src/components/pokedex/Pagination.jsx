@@ -5,19 +5,19 @@ import React from 'react'
 const Pagination = ({ arrayPages, currentPage, setCurrentPage, quantityPages }) => {
 
     const prevPage = () => {
-        if(currentPage -1 === 0){
+        if (currentPage - 1 === 0) {
             setCurrentPage(quantityPages)
-        }else{
-          setCurrentPage(currentPage - 1)
+        } else {
+            setCurrentPage(currentPage - 1)
         }
     }
 
 
     const nextPage = () => {
-        if(currentPage +1 > quantityPages){
+        if (currentPage + 1 > quantityPages) {
             setCurrentPage(1)
-        }else{
-          setCurrentPage(currentPage + 1)
+        } else {
+            setCurrentPage(currentPage + 1)
         }
     }
 
@@ -31,7 +31,11 @@ const Pagination = ({ arrayPages, currentPage, setCurrentPage, quantityPages }) 
             <ul className='pagination-number-container'>
                 {
                     arrayPages?.map(num => (
-                        <li onClick={() => changePageTo(num)} key={num} className='page-number'>{num}</li>
+                        <li onClick={() => changePageTo(num)}
+                            key={num}
+                            className={num == currentPage ? `page-number-active page-number` : 'page-number' }
+                        >{num}
+                        </li>
                     ))
                 }
             </ul>

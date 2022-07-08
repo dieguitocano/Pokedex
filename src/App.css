@@ -96,6 +96,7 @@ body {
 .pokedex-main {}
 
 .pokedex-letras {
+
     text-align: center;
     align-items: center;
     width: max-content;
@@ -152,7 +153,7 @@ body {
     margin: 0;
     padding: 0 10px;
     text-shadow: 0 -1px 0 #000;
-    width: 350px;
+    width: 300px;
 }
 
 .ie .webdesigntuts-workshop input {
@@ -187,6 +188,43 @@ body {
 
 
 
+.webdesigntuts-workshop button {
+    background: #222;
+
+    box-sizing: border-box;
+    border: 1px solid #444;
+    border-left-color: #000;
+    border-radius: 8px;
+    box-shadow: 0 2px 0 #000;
+    color: #fff;
+    display: block;
+    float: left;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    font-weight: 400;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-shadow: 0 -1px 0 #000;
+    width: 80px;
+}
+
+.webdesigntuts-workshop button:hover,
+.webdesigntuts-workshop button:focus {
+    background: #292929;
+
+    color: #5f5;
+    outline: none;
+}
+
+.webdesigntuts-workshop button:active {
+    background: #292929;
+
+    box-shadow: 0 1px 0 #000, inset 1px 0 1px #222;
+    top: 1px;
+}
 
 
 @keyframes glow {
@@ -228,7 +266,7 @@ body {
     background: #222;
 
 
-  
+
 
 
 }
@@ -340,6 +378,8 @@ body {
 
 
 
+
+
 .pagination-number-container {
     padding-left: 0;
     display: flex;
@@ -353,6 +393,28 @@ body {
     font-size: 25px;
     list-style: none;
     cursor: pointer;
+}
+
+.page-number-active {
+    /*border: 1px solid #5f5;
+    border-radius: 4px;*/
+    text-shadow: 0 0 5px rgba(0, 255, 0, .2), inset 0 0 5px rgba(0, 255, 0, .1), 0 2px 0 #000;
+    border-color: #393;
+
+
+
+}
+
+/*--------------------end-----------------*/
+
+/*--------------------FOOTER-----------------*/
+
+
+.footer {
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+    color: rgba(0, 255, 0, .6)
 }
 
 /*--------------------end-----------------*/

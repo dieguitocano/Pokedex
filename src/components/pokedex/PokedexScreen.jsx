@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
+import Footer from '../footer/Footer'
 import Pagination from './Pagination'
 import PokeCard from './PokeCard'
 import SearchBar from './SearchBar'
@@ -26,7 +27,7 @@ const PokedexScreen = () => {
             /*1154*/
             axios.get(URL)
                 .then(res => {
-                    console.log(res.data.results)
+
                     setPokemons(res.data.results)
                 })
                 .catch(err => console.log(err))
@@ -52,18 +53,32 @@ const PokedexScreen = () => {
             .catch(err => console.log(err))
     }, [])
 
+    useEffect(() => {
+        setFilterPokemon(pokemons?.filter(e => e.name.includes(pokeSearch?.toLowerCase())))
+
+
+    }, [pokeSearch])
+
+
+    let arrayPivote
+    if (filterPokemon) {
+        arrayPivote = filterPokemon
+    } else {
+        arrayPivote = pokemons
+    }
 
     let arrayPokemons = []
     const pokemonsPerPage = 6
-    if (pokemons?.length < pokemonsPerPage) {
-        arrayPokemons = [...pokemons]
+    if (arrayPivote?.length < pokemonsPerPage) {
+        arrayPokemons = [...arrayPivote]
     } else {
         const lastPokemon = currentPage * pokemonsPerPage
-        arrayPokemons = pokemons?.slice(lastPokemon - pokemonsPerPage, lastPokemon)
+        arrayPokemons = arrayPivote?.slice(lastPokemon - pokemonsPerPage, lastPokemon)
     }
 
+
     let arrayPages = []
-    let quantityPages = Math.ceil(pokemons?.length / pokemonsPerPage)
+    let quantityPages = Math.ceil(arrayPivote?.length / pokemonsPerPage)
     const pagesPerBlock = 5
     let currentBlock = Math.ceil(currentPage / pagesPerBlock)
     if (currentBlock * pagesPerBlock >= quantityPages) {
@@ -80,11 +95,11 @@ const PokedexScreen = () => {
     console.log(arrayPages)
     console.log(arrayPokemons)
 
-    useEffect(() => {
-        setFilterPokemon(pokemons?.filter(e => e.name.includes(pokeSearch?.toLowerCase())))
+
+    const navigate = useNavigate()
+    const goHome = () => navigate('/')
 
 
-    }, [pokeSearch])
 
 
 
@@ -98,7 +113,9 @@ const PokedexScreen = () => {
                 <SearchBar setPokeSearch={setPokeSearch}
                     typeList={typeList}
                     setFilterType={setFilterType}
+                    goHome={goHome}
                 />
+                
             </div>
 
             <Pagination
@@ -111,7 +128,7 @@ const PokedexScreen = () => {
 
             <div className='card-box'>
                 {
-                    filterPokemon ?
+                    /*filterPokemon ?
                         filterPokemon?.map(pokemon => (
                             <PokeCard
                                 key={pokemon.url}
@@ -124,9 +141,17 @@ const PokedexScreen = () => {
                                 key={pokemon.url}
                                 url={pokemon.url}
                             />
-                        ))
+                        ))*/
+
+                    arrayPokemons?.map(pokemon => (
+                        <PokeCard
+                            key={pokemon.url}
+                            url={pokemon.url}
+                        />
+                    ))
                 }
             </div>
+            <Footer />
         </div>
     )
 }
