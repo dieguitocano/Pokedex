@@ -151,7 +151,9 @@ const PokedexScreen = () => {
                     ))
                 }
             </div>
+
             <Footer />
+            
         </div>
     )
 }

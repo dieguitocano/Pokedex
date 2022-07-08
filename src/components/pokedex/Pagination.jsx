@@ -38,6 +38,7 @@ const Pagination = ({ arrayPages, currentPage, setCurrentPage, quantityPages }) 
                         </li>
                     ))
                 }
+                
             </ul>
             <div onClick={nextPage} className='pagination-prev-next'>&#62;</div>
         </div>

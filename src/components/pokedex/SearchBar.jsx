@@ -13,9 +13,9 @@ const SearchBar = ({setPokeSearch, typeList, setFilterType, goHome}) => {
   }
 
 
-  
 
   return (
+    
     <section className='webdesigntuts-workshop'>
       <form className="searchbar" >
         <input 
