@@ -11,6 +11,22 @@ body {
     font-family: 'Share Tech Mono', monospace;
 }
 
+body::-webkit-scrollbar {
+    width: 11px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(58, 55, 55);
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: black;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 0.5px solid rgba(0, 255, 0, .6)  /* creates padding around scroll thumb */
+  }
+
 
 /*----------------HOMESCREEN--------------------*/
 
@@ -25,7 +41,6 @@ body {
     margin: 0 auto;
     padding: 0;
     background-attachment: fixed;
-    /*background-color: rgb(25, 28, 31);*/
     box-sizing: border-box;
     font-size: medium;
     overflow: hidden scroll;
@@ -38,7 +53,9 @@ body {
 .intro-box {
     display: flex;
     width: 100%;
+    min-height: 100vh;
     align-items: center;
+
 
 
 }
@@ -49,10 +66,12 @@ body {
     width: 60%;
     height: 400px;
     margin: 8% 5%;
+    position: absolute;
 
 }
 
-.search-start {}
+
+
 
 
 .pokedex-title {
@@ -87,6 +106,8 @@ body {
         0 0 50px #03e9f4,
         0 0 100px #03e9f4;
 }
+
+
 
 
 /*--------------- end --------------------*/
@@ -259,14 +280,11 @@ body {
 
     position: relative;
     text-shadow: 0 -1px 0 #000;
-    width: 100px;
+    width: 125px;
     padding: 0 10px;
     text-shadow: 0 -1px 0 #000;
     color: #888;
     background: #222;
-
-
-
 
 
 }
@@ -279,6 +297,22 @@ body {
     color: #5f5;
     outline: none;
 }
+
+.select::-webkit-scrollbar {
+    width: 11px;
+    /* width of the entire scrollbar */
+}
+
+.select::-webkit-scrollbar-track {
+    background: rgb(58, 55, 55);
+    /* color of the tracking area */
+}
+
+.select::-webkit-scrollbar-thumb {
+    background-color: black;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 0.5px solid rgba(0, 255, 0, .6)  /* creates padding around scroll thumb */
+  }
 
 
 
