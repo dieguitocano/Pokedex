@@ -17,7 +17,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: rgb(58, 55, 55);
+    background: rgb(49, 47, 47);
     /* color of the tracking area */
 }
 
@@ -75,10 +75,12 @@ body::-webkit-scrollbar-thumb {
 
 
 .intro-container {
-    width: 60%;
+    width: 80%;
     height: 400px;
     margin: 8% 5%;
     position: absolute;
+    
+    
 
 }
 
@@ -130,7 +132,7 @@ body::-webkit-scrollbar-thumb {
 .pokedex-main {}
 
 .pokedex-letras {
-
+    cursor: pointer;
     text-align: center;
     align-items: center;
     width: max-content;
@@ -173,7 +175,7 @@ body::-webkit-scrollbar-thumb {
 .webdesigntuts-workshop input {
     background: #222;
     font-family: 'Share Tech Mono', monospace;
-
+    
     border: 1px solid #444;
     border-radius: 8px;
     box-shadow: 0 2px 0 #000;
@@ -224,13 +226,14 @@ body::-webkit-scrollbar-thumb {
 
 .webdesigntuts-workshop button {
     background: #222;
+    cursor: pointer;
 
     box-sizing: border-box;
     border: 1px solid #444;
     border-left-color: #000;
     border-radius: 8px;
     box-shadow: 0 2px 0 #000;
-    color: #fff;
+    color: #888;
     display: block;
     float: left;
     font-family: 'Share Tech Mono', monospace;
@@ -248,6 +251,7 @@ body::-webkit-scrollbar-thumb {
 .webdesigntuts-workshop button:hover,
 .webdesigntuts-workshop button:focus {
     background: #292929;
+    cursor: pointer;
 
     color: #5f5;
     outline: none;
@@ -276,7 +280,7 @@ body::-webkit-scrollbar-thumb {
 
 .select {
     background: #222;
-
+    cursor: pointer;
     box-sizing: border-box;
     border: 1px solid #444;
     border-left-color: #000;
@@ -290,6 +294,7 @@ body::-webkit-scrollbar-thumb {
     height: 40px;
     line-height: 40px;
     margin: 0;
+    
 
     position: relative;
     text-shadow: 0 -1px 0 #000;
@@ -298,6 +303,7 @@ body::-webkit-scrollbar-thumb {
     text-shadow: 0 -1px 0 #000;
     color: #888;
     background: #222;
+    border-radius: 8px;
 
 
 }
@@ -305,10 +311,12 @@ body::-webkit-scrollbar-thumb {
 
 .select:hover,
 .select:focus {
-    background-color: #292929;
+    background-color: #2b2929;
     background: linear-gradient(#292929);
     color: #5f5;
     outline: none;
+    cursor: pointer;
+
 }
 
 .select::-webkit-scrollbar {
@@ -317,7 +325,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .select::-webkit-scrollbar-track {
-    background: rgb(58, 55, 55);
+    background: rgb(34, 32, 32);
     /* color of the tracking area */
 }
 
@@ -328,6 +336,10 @@ body::-webkit-scrollbar-thumb {
   }
 
 
+.all-pokemons{
+    cursor: pointer;
+    border-radius: 8px;
+}
 
 /*-----------SEARCHBAR end------------*/
 

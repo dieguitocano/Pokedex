@@ -4,7 +4,7 @@ const Footer = () => {
     return (
         
         
-        <p className="footer">Made by Diego Cano with 🖤 in Academlo</p>
+        <p className="footer">by Diego Cano with 🖤 </p>
 
         
     )

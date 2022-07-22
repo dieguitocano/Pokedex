@@ -26,10 +26,10 @@ const SearchBar = ({setPokeSearch, typeList, setFilterType, goHome}) => {
        
 
         <select className='select' onChange={changeSelect}>
-          <option value="All Pokemons">All Pokemons</option>
+          <option value="all-pokemons">Pokemons</option>
           {
             typeList?.map(type => (
-              <option key={type.name} value={type.name}>{type.name}</option>
+              <option className='menu-pokemon' key={type.name} value={type.name}>{type.name}</option>
             ))
           }
 
