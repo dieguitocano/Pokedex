@@ -50,6 +50,18 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+.home-container::-webkit-scrollbar {
+    width: 11px;
+    /* width of the entire scrollbar */
+}
+
+.home-container::-webkit-scrollbar-track {
+    background:  #151515;;
+   
+}
+
+
+
 .intro-box {
     display: flex;
     width: 100%;
@@ -96,6 +108,7 @@ body::-webkit-scrollbar-thumb {
 
 .hello-trainer {
     color: white;
+    cursor: pointer;
 
 }
 
