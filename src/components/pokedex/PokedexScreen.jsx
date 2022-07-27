@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Footer from '../footer/Footer'
+import Loader from '../loader/Loader'
 import Pagination from './Pagination'
 import PokeCard from './PokeCard'
 import SearchBar from './SearchBar'
@@ -18,6 +19,7 @@ const PokedexScreen = () => {
     const [filterPokemon, setFilterPokemon] = useState()
     const [typeList, setTypeList] = useState()
     const [filterType, setFilterType] = useState('All Pokemons')
+    const [isLoading, setIsLoading] = useState(true)
 
 
     useEffect(() => {
@@ -29,6 +31,7 @@ const PokedexScreen = () => {
                 .then(res => {
 
                     setPokemons(res.data.results)
+                    setIsLoading(false)
                 })
                 .catch(err => console.log(err))
         } else {
@@ -115,7 +118,7 @@ const PokedexScreen = () => {
                     setFilterType={setFilterType}
                     goHome={goHome}
                 />
-                
+
             </div>
 
             <Pagination
@@ -128,32 +131,23 @@ const PokedexScreen = () => {
 
             <div className='card-box'>
                 {
-                    /*filterPokemon ?
-                        filterPokemon?.map(pokemon => (
+                    isLoading ?
+
+                        <Loader />
+
+                        :
+
+                        arrayPokemons.map(pokemon => (
                             <PokeCard
                                 key={pokemon.url}
                                 url={pokemon.url}
                             />
                         ))
-                        :
-                        pokemons?.map(pokemon => (
-                            <PokeCard
-                                key={pokemon.url}
-                                url={pokemon.url}
-                            />
-                        ))*/
-
-                    arrayPokemons?.map(pokemon => (
-                        <PokeCard
-                            key={pokemon.url}
-                            url={pokemon.url}
-                        />
-                    ))
                 }
             </div>
 
             <Footer />
-            
+
         </div>
     )
 }

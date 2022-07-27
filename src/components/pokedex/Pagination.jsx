@@ -4,6 +4,8 @@ import React from 'react'
 
 const Pagination = ({ arrayPages, currentPage, setCurrentPage, quantityPages }) => {
 
+    
+
     const prevPage = () => {
         if (currentPage - 1 === 0) {
             setCurrentPage(quantityPages)
@@ -33,7 +35,7 @@ const Pagination = ({ arrayPages, currentPage, setCurrentPage, quantityPages }) 
                     arrayPages?.map(num => (
                         <li onClick={() => changePageTo(num)}
                             key={num}
-                            className={num == currentPage ? `page-number-active page-number` : 'page-number' }
+                            className={num == currentPage ? 'page-number-active page-number' : 'page-number' }
                         >{num}
                         </li>
                     ))
