@@ -54,10 +54,11 @@ body::-webkit-scrollbar-thumb {
 .home-container::-webkit-scrollbar {
     width: 11px;
     /* width of the entire scrollbar */
+    display: none;
 }
 
 .home-container::-webkit-scrollbar-track {
-    background:  #151515;;
+    background:  #151515;
    
 }
 
