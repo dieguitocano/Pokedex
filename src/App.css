@@ -44,6 +44,7 @@ body::-webkit-scrollbar-thumb {
     box-sizing: border-box;
     font-size: medium;
     overflow: hidden scroll;
+    position: relative;
 
 
 
